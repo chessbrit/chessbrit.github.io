@@ -1,7 +1,7 @@
 /* --- Global Styles & New Color Palette --- */
 :root {
     --bg-color: #2c3e50; /* Dark Slate Grey */
-    --surface-color: #34495e; /* Wet Asphalt */
+    --surface-color: #34495e; /* Wet Asphalt */ 
     --text-primary: #ecf0f1; /* Light Off-white */
     --text-secondary: #bdc3c7; /* Silver */
     --accent-color: #004225; /* British Racing Green */
@@ -205,4 +205,5 @@ footer a { color: var(--text-primary); }
     .container { padding: 1rem; }
     .card-grid, .culture-grid { grid-template-columns: 1fr; }
     .gm-profile { flex-direction: column; }
+
 }
