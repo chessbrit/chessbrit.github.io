@@ -1,0 +1,208 @@
+/* --- Global Styles & New Color Palette --- */
+:root {
+    --bg-color: #2c3e50; /* Dark Slate Grey */
+    --surface-color: #34495e; /* Wet Asphalt */
+    --text-primary: #ecf0f1; /* Light Off-white */
+    --text-secondary: #bdc3c7; /* Silver */
+    --accent-color: #004225; /* British Racing Green */
+    --border-color: #4a637d;
+
+    --header-font: 'Playfair Display', serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for sticky nav */
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%2334495e" fill-opacity="0.4" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    font-family: var(--header-font);
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 1rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 3rem auto;
+    width: 80%;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: var(--bg-color);
+    color: var(--text-primary);
+    text-align: center;
+    padding: 3rem 1rem;
+}
+header h1 { font-size: 4rem; }
+header .tagline { font-size: 1.5rem; color: var(--text-secondary); font-style: italic; }
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(44, 62, 80, 0.9);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+}
+nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+/* --- Reusable Card Component --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+.card h3 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1rem; }
+.card p { color: var(--text-secondary); margin-bottom: 1rem; }
+.card p:last-child { margin-bottom: 0; }
+
+/* --- Section-Specific Styles --- */
+.fun-fact, .pro-tip {
+    background-color: rgba(0,0,0,0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    border-radius: 0 4px 4px 0;
+}
+.opening-moves pre {
+    background: var(--bg-color);
+    color: var(--text-secondary);
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+.example { font-style: italic; font-size: 0.9rem; }
+
+.gm-profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.gm-text { flex: 2; min-width: 300px; }
+.gm-image { flex: 1; text-align: center; }
+.gm-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    min-width: 250px;
+}
+.gm-image caption { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; font-style: italic; }
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.culture-grid ul { list-style: none; padding-left: 0; }
+.culture-grid li { padding: 0.25rem 0; }
+.culture-grid table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.culture-grid th, .culture-grid td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border-color); }
+.culture-grid th { color: var(--text-primary); }
+
+.event-card p { font-size: 0.95rem; }
+.event-card p strong { color: var(--text-primary); }
+
+#shop .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-align: right;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-color);
+    color: var(--text-secondary);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+footer h2 { border-bottom: none; }
+footer a { color: var(--text-primary); }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+.contact-method h4 { font-size: 1.2rem; color: var(--text-primary); }
+.contact-method address { font-style: normal; }
+.note { font-size: 0.85rem; font-style: italic; }
+.copyright { margin-top: 3rem; font-size: 0.9rem; }
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    html { scroll-padding-top: 60px; }
+    h2 { font-size: 2.2rem; }
+    header h1 { font-size: 3rem; }
+    header .tagline { font-size: 1.2rem; }
+    
+    nav { padding: 0.5rem; }
+    nav a { margin: 0.25rem; }
+    
+    .container { padding: 1rem; }
+    .card-grid, .culture-grid { grid-template-columns: 1fr; }
+    .gm-profile { flex-direction: column; }
+}
